@@ -1,0 +1,88 @@
+# -*-fvwm-*-
+# My .fvwm2rc file
+
+# Virtual Desktops
+DesktopSize 2x2
+EdgeScroll 0 0
+
+# Program Launching Functions
+DestroyFunc MoveGotoPage
+AddToFunc   MoveGotoPage
++ I MoveToPage $0 $1
++ I GotoPage $0 $1
+
+#Startup Functions
+DestroyFunc StartFunction
+AddToFunc   StartFunction
++ I Module FvwmAuto 100 Raise Nop
+
+DestroyFunc InitFunction
+AddToFunc InitFunction
++ I Exec exec fvwm-root -r $[FVWM_USERDIR]/wallpaper.png
++ I Exec exec stardict
++ I Exec exec emacs
++ I Exec exec chromium
+
+# Basic Bindings
+Mouse 1 R A -
+Key m W M Maximize
+Key d W M Delete
+Key t A M Exec exec xterm
+Key c A M Exec exec chromium
+Key e A M Exec exec emacs
+key l A M Exec exec slock
+key Print A M Exec exec import -screen \
+              ~/Pictures/screenshot/screenshot-`date +%H%M%S`.png
+Key equal A M Exec exec amixer set Master 3%+
+Key minus A M Exec exec amixer set Master 3%-
+Key 0     A M Exec exec amixer set Master toggle
+
+Key r A SM Restart
+Key q A SM Quit
+Key r A CM Exec exec shutdown -r now
+Key q A CM Exec exec shutdown -h now
+
+Key 1 A M GotoPage 0 0
+Key 2 A M GotoPage 1 0
+Key 3 A M GotoPage 0 1
+Key 4 A M GotoPage 1 1
+
+Key 1 W C PointerWindow MoveGotoPage 0 0
+Key 2 W C PointerWindow MoveGotoPage 1 0
+Key 3 W C PointerWindow MoveGotoPage 0 1
+Key 4 W C PointerWindow MoveGotoPage 1 1
+
+Key Left  W M Move 0 100-100w
+Key Right W M Move 100-100w 0
+Key Up    W M Move 0 0
+Key Down  W M Move 100-100w 100-100w
+
+Key Left  A S CursorMove -5 0
+Key Right A S CursorMove +5 0
+Key Up    A S CursorMove 0 -5
+Key Down  A S CursorMove 0 +5
+
+Key Left  A SM Scroll -25 +0
+Key Right A SM Scroll +25 +0
+Key Up    A SM Scroll +0  -25
+Key Down  A SM Scroll +0  +25
+
+# Window and Menu Colorsets
+Colorset 1 fg #101060, bg #e6e7d7
+Colorset 2 fg White, bg Black
+Colorset 3 fg Black, bg #e6e7d7, sh Black, hi #202070
+Colorset 4 fg DarkRed, bg #e6e7d7, sh Black, hi #202070
+
+# Window Style
+Style * BorderWidth 2, HandleWidth 2
+Style * BorderColorset 1, HilightBorderColorset 2
+Style * NoTitle, SloppyFocus, ResizeHintOverride
+Style emacs    StartsOnPage 1 0
+Style chromium StartsOnPage 0 1
+
+# MenuStyles
+MenuStyle * BorderWidth 2
+MenuStyle * ActiveFore, Hilight3DOff
+MenuStyle * MenuColorset 3
+MenuStyle * ActiveColorset 4
+MenuStyle * Font "xft:Sans:Bold:size=11:antialias=True"
