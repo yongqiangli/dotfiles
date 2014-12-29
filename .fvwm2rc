@@ -85,4 +85,4 @@ MenuStyle * BorderWidth 2
 MenuStyle * ActiveFore, Hilight3DOff
 MenuStyle * MenuColorset 3
 MenuStyle * ActiveColorset 4
-MenuStyle * Font "xft:Sans:Bold:size=11:antialias=True"
+MenuStyle * Font "xft:WenQuanYi Micro Hei:Sans:Bold:size=11:antialias=True"

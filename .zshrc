@@ -73,8 +73,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export PATH=$HOME/.gem/ruby/2.1.0/bin:/opt/java/bin:$PATH
-
 man() {
     env LESS_TERMCAP_mb=$(printf "\e[1;31m") \
 	LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -86,11 +84,9 @@ man() {
 	man "$@"
 }
 
-alias ls='ls --color=auto'
+alias less='/usr/share/vim/vim74/macros/less.sh'
 alias grep="grep --colour=auto"
-alias ll='ls -l'
-alias la='ls -a'
-alias m='mplayer -fs'
+alias m='mplayer'
 alias mm='mplayer -shuffle -loop 0 -playlist'
 alias dp="display -resize '1362x764>'"
 alias -s gz='tar -xzvf'
@@ -98,4 +94,3 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias -s pdf='mupdf'
-

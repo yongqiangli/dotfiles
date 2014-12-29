@@ -3,7 +3,7 @@
 (setq user-mail-address "yongqiangli37@gmail.com")
 
 ;; 路径
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; 支持emacs和外部程序的拷贝粘贴
 (setq x-select-enable-clipboard t)
@@ -35,7 +35,7 @@
       scroll-conservatively 10000)
 
 ;; 不产生备份文件
-(setq make-backup-files nil) 
+(setq make-backup-files nil)
 
 ;; 把缺省的 major mode 设置为 text-mode
 (setq default-major-mode 'text-mode)
@@ -69,9 +69,6 @@
 
 ;; 默认显示 80 列就换行
 (setq default-fill-column 80)
-
-;; org-mode 自动换行
-(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 ;; 去掉工具栏
 (tool-bar-mode 0)
@@ -109,28 +106,26 @@
 ;; fvwm mode
 (require 'fvwm-mode)
 
-(require 'org-publish)
-(setq org-publish-project-alist
-      '(
-        ("blog-notes"
-         :base-directory "~/Project/blog/org/"
-         :base-extension "org"
-         :publishing-directory "~/Project/blog/"
-         :recursive t
-         :publishing-function org-publish-org-to-html
-         :headline-levels 4
-         :table-of-contents nil
-         :section-numbers nil
-         :html-preamble nil
-         :html-postamble nil
-         :style "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\"/>"
-         )
-        ("blog-static"
-         :base-directory "~/Project/blog/org/"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-         :publishing-directory "~/Project/blog/"
-         :recursive t
-         :publishing-function org-publish-attachment
-         )
-        ("blog" :components ("blog-notes" "blog-static"))
-       ))
+;; org-mode 自动换行
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+
+;; org export config 
+(require 'org-export)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-file-apps
+   (quote
+    ((auto-mode . emacs)
+     ("\\.mm\\'" . default)
+     ("\\.x?html?\\'" . "chromium %s")
+     ("\\.pdf\\'" . "mupdf %s")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
