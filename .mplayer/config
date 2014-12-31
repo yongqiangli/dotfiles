@@ -1,0 +1,15 @@
+# Write your default config options here!
+fs=yes
+stop-xscreensaver=yes
+overlapsub=1
+fontconfig=0
+font=/usr/share/fonts/wenquanyi/wqy-microhei/wqy-microhei.ttc
+subcp=cp936,gb,gbk,gb2312,big5
+unicode=1
+utf8=1
+slang=zh,cn,gb,chs,eng,big5
+sub-fuzziness=1
+subfont-autoscale=2
+subfont-osd-scale=3
+subfont-text-scale=3
+
