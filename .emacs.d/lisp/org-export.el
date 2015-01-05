@@ -12,6 +12,8 @@
          :section-numbers nil
          :html-preamble nil
          :html-postamble nil
+         :html-head-include-default-style nil
+         :html-head-include-scripts nil
          :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\"/>"
          )
         ("blog-static"
