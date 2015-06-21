@@ -11,17 +11,12 @@ AddToFunc   MoveGotoPage
 + I MoveToPage $0 $1
 + I GotoPage $0 $1
 
-#Startup Functions
-DestroyFunc StartFunction
-AddToFunc   StartFunction
-+ I Module FvwmAuto 100 Raise Nop
-
+#Init Functions
 DestroyFunc InitFunction
 AddToFunc InitFunction
 + I Exec exec fvwm-root -r $[FVWM_USERDIR]/wallpaper.png
++ I Exec exec conky
 + I Exec exec stardict
-+ I Exec exec emacs
-+ I Exec exec chromium
 
 # Basic Bindings
 Mouse 1 R A -
@@ -42,15 +37,15 @@ Key q A SM Quit
 Key r A CM Exec exec shutdown -r now
 Key q A CM Exec exec shutdown -h now
 
-Key 1 A M GotoPage 0 0
-Key 2 A M GotoPage 1 0
-Key 3 A M GotoPage 0 1
-Key 4 A M GotoPage 1 1
+Key F1 A M GotoPage 0 0
+Key F2 A M GotoPage 1 0
+Key F3 A M GotoPage 0 1
+Key F4 A M GotoPage 1 1
 
-Key 1 W C PointerWindow MoveGotoPage 0 0
-Key 2 W C PointerWindow MoveGotoPage 1 0
-Key 3 W C PointerWindow MoveGotoPage 0 1
-Key 4 W C PointerWindow MoveGotoPage 1 1
+Key F1 W C PointerWindow MoveGotoPage 0 0
+Key F2 W C PointerWindow MoveGotoPage 1 0
+Key F3 W C PointerWindow MoveGotoPage 0 1
+Key F4 W C PointerWindow MoveGotoPage 1 1
 
 Key Left  W M Move 0 100-100w
 Key Right W M Move 100-100w 0

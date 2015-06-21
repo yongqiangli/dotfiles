@@ -94,3 +94,6 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias -s pdf='mupdf'
+alias fbti='sh ~/.fbterm-bi ~/.fvwm/background.png'
+alias fbt='fcitx-fbterm-helper -l'
+alias fbm="mplayer -vo fbdev2 -zoom -x 1366 -y 768 '$@' > /dev/null 2>1"
