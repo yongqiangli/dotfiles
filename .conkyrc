@@ -1,0 +1,117 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can #370000istribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+alignment top_left
+background yes
+#border_width 1
+#cpu_avg_samples 2
+#default_color white
+#default_outline_color white
+#default_shade_color white
+double_buffer yes
+#draw_borders yes
+#draw_graph_borders yes
+#draw_outline no
+#draw_shades no
+use_xft yes
+#xftfont DejaVu Sans Mono:size=10
+xftfont WenQuanYi Micro Hei Mono:size=7
+gap_x 25
+gap_y 75
+#minimum_size 5 5
+#net_avg_samples 2
+#no_buffers yes
+#out_to_console no
+#out_to_stderr no
+#extra_newline no
+own_window yes
+own_window_class Conky
+own_window_type desktop
+#own_window_hints undecorated
+own_window_transparent yes
+#own_window_type override
+#stippled_borders 0
+update_interval 1.0
+#uppercase no
+#use_spacer none
+#show_graph_scale no
+#show_graph_range no
+
+TEXT
+${color #370000}${font :bold:size=11}Date $hr$font
+${color #003737}${font :bold:size=11}$alignr ${time %A}$font
+${color #373700}${font :bold:size=17}${time %T}$font
+${color #003737}${font :bold:size=11}$alignr ${time %B %d, %Y}$font
+${color #370000}$hr
+
+${color #370000}${font :bold:size=11}Systems $hr$font
+${color #373737}User $alignr ${color #373700}${exec whoami}
+${color #373737}Hostname $alignr ${color #373700}$nodename
+${color #373737}System $alignr ${color #373700}$sysname
+${color #373737}Kernel $alignr ${color #373700}$kernel
+${color #373737}Machine $alignr ${color #373700}$machine
+${color #373737}Uptime $alignr ${color #373700}$uptime
+${color #373737}Processes $alignr ${color #373700}$running_processes/$processes
+${color #373737}Threads $alignr ${color #373700}$running_threads/$threads
+${color #373737}Temp $alignr ${color #373700}${acpitemp}°C
+${color #370000}$hr
+
+${color #370000}${font :bold:size=11}Processors $hr$font
+${color #373737}Core 1 $alignr ${color #373700}${cpu cpu1}%  ${freq_g 1}GHz
+${color #003700}${cpubar 4 cpu1}
+${color #373737}Core 2 $alignr ${color #373700}${cpu cpu2}%  ${freq_g 2}GHz
+${color #003700}${cpubar 4 cpu2}
+${color #373737}Core 3 $alignr ${color #373700}${cpu cpu3}%  ${freq_g 3}GHz
+${color #003700}${cpubar 4 cpu3}
+${color #373737}Core 4 $alignr ${color #373700}${cpu cpu4}%  ${freq_g 4}GHz
+${color #003700}${cpubar 4 cpu4}
+${color #370000}Name $alignr PID   CPU%   MEM%$font
+${color #373737}${top name 1} $alignr ${color #373700}${top pid 1} ${top cpu 1} ${top mem 1}
+${color #373737}${top name 2} $alignr ${color #373700}${top pid 2} ${top cpu 2} ${top mem 2}
+${color #373737}${top name 3} $alignr ${color #373700}${top pid 3} ${top cpu 3} ${top mem 3}
+${color #373737}${top name 4} $alignr ${color #373700}${top pid 4} ${top cpu 4} ${top mem 4}
+${color #373737}${top name 5} $alignr ${color #373700}${top pid 5} ${top cpu 5} ${top mem 5}
+${color #370000}$hr
+
+${color #370000}${font :bold:size=11}Memory $hr$font
+${color #373737}RAM $alignr ${color #373700}$mem/$memmax  $memperc%
+${color #003700}${membar 4}
+${color #370000}$hr
+
+${color #370000}${font :bold:size=11}File Systems $hr$font
+${color #373737}/     $alignr ${color #373700}${fs_used /}/${fs_size /}  ${fs_used_perc /}%
+${color #003700}${fs_bar 4 /}
+${color #373737}/home $alignr ${color #373700}${fs_used /home}/${fs_size /home}  ${fs_used_perc /home}%
+${color #003700}${fs_bar 4 /home}
+${color #373737}Win7E  $alignr ${color #373700}${fs_used /home/lyq/Win7E}/${fs_size /home/lyq/Win7E}  ${fs_used_perc /home/lyq/Win7E}%
+${color #003700}${fs_bar 4 /var}
+${color #370000}$hr
+
+${color #370000}${font :bold:size=11}Network $hr$font
+${color #373737}IP address $alignr ${color #373700}${addr wlp3s0}
+${color #373737}Upload $alignr ${color #373700}${upspeed wlp3s0}/s
+${color #373737}Download $alignr ${color #373700}${downspeed wlp3s0}/s
+${color #370000}$hr
+${color #003737}${font :bold:size=11}$alignc Keep it simple stupid
