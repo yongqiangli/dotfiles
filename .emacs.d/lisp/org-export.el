@@ -10,11 +10,13 @@
          :headline-levels 4
          :with-toc nil
          :section-numbers nil
+         :html-link-up "index.html"
+         :html-link-home "../index.html"
          :html-preamble nil
-         :html-postamble nil
+         :html-postamble "<footer> Built with <a href=\"http://www.gnu.org/software/emacs/\">Emacs</a> (<a href=\"http://orgmode.org\">Org Mode</a>) | Licensed under <a href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/\">CC BY-NC-SA 4.0</a> </footer>"
          :html-head-include-default-style nil
          :html-head-include-scripts nil
-         :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\"/>"
+         :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/main.css\"/>"
          )
         ("blog-static"
          :base-directory "~/blog/org/"
